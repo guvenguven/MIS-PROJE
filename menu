@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menü - Trafik Kaza Raporu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .header {
+            background-color: #dc3545;
+            color: white;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-arrow {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .user-name {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #8b1e2c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 140px);
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .menu-button {
+            background-color: #dc3545;
+            color: white;
+            width: 80%;
+            max-width: 300px;
+            padding: 15px 0;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: #c82333;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #dc3545;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(220, 53, 69, 0.05) 25%, 
+                transparent 25%, 
+                transparent 75%, 
+                rgba(220, 53, 69, 0.05) 75%);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+
+    <header class="header">
+        <a href="#" class="back-arrow">←</a>
+        <span class="menu-title">Menu</span>
+        <span class="menu-icon">☰</span>
+    </header>
+
+    <div class="user-name">Sude Y Kacar</div>
+
+    <main class="content">
+        <button class="menu-button" onclick="location.href='create-report.html'">
+            Create a Report
+        </button>
+        <button class="menu-button" onclick="location.href='join-report.html'">
+            Join a Report
+        </button>
+        <button class="menu-button" onclick="location.href='calming-guide.html'">
+            Calming Guide
+        </button>
+    </main>
+
+    <footer class="footer" onclick="location.href='login.html'">
+        Return to Login Page
+    </footer>
+
+    <script>
+        // Geri butonu işlevselliği
+        document.querySelector('.back-arrow').addEventListener('click', (e) => {
+            e.preventDefault();
+            history.back();
+        });
+
+        // Menü butonu işlevselliği
+        document.querySelector('.menu-icon').addEventListener('click', () => {
+            // Menü açılır/kapanır işlevselliği buraya eklenebilir
+        });
+
+        // Butonlar için hover efekti
+        document.querySelectorAll('.menu-button').forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.style.transform = 'scale(1.02)';
+            });
+            button.addEventListener('mouseout', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
