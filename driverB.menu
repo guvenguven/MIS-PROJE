@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver B Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #0052cc;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .menu-icon span {
+            width: 25px;
+            height: 2px;
+            background-color: white;
+        }
+
+        .menu-container {
+            flex: 1;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .menu-button {
+            background-color: #0052cc;
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .menu-button:hover {
+            background-color: #003d99;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .menu-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                rgba(0, 82, 204, 0.05) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(0, 82, 204, 0.05) 50%,
+                rgba(0, 82, 204, 0.05) 75%,
+                transparent 75%,
+                transparent);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+
+    <header class="header">
+        <a href="#" class="back-button">←</a>
+        <div class="menu-title">Driver B</div>
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="menu-container">
+        <button class="menu-button" onclick="location.href='driver-information.html'">
+            Driver Information
+        </button>
+        <button class="menu-button" onclick="location.href='car-permit-information.html'">
+            Car Permit Information
+        </button>
+        <button class="menu-button" onclick="location.href='insurance-information.html'">
+            Insurance Information
+        </button>
+        <button class="menu-button" onclick="location.href='photo-upload.html'">
+            Photo Upload
+        </button>
+        <button class="menu-button" onclick="location.href='sms-verification.html'">
+            SMS Verification
+        </button>
+    </div>
+
+    <script>
+        // Geri butonu işlevselliği
+        document.querySelector('.back-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            history.back();
+        });
+
+        // Menü butonu işlevselliği
+        document.querySelector('.menu-icon').addEventListener('click', () => {
+            // Menü açılır/kapanır işlevselliği
+        });
+
+        // Butonlar için gelişmiş hover efekti
+        document.querySelectorAll('.menu-button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(0)';
+            });
+            
+            button.addEventListener('click', () => {
+                button.style.transform = 'translateY(1px)';
+                setTimeout(() => {
+                    button.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
